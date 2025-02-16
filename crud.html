@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
+  <link rel="stylesheet" href="./crud.css">
+  <link rel="stylesheet" href="./layout.css">
+  <title>Game Manager</title>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="back-button" onclick="backToHomepage()">
+      &#x1f868;
+    </div>
+    <div id="toast">
+      Message
+    </div>
+    <div class="settings" onclick="settings()">
+      <img src="./assets/cogwheel.svg" alt="" srcset="">
+    </div>
+  </div>
+  <section>
+    <div class="form-container">
+      <div class="software-table">
+        <div class="row head">
+          <div class="data id">
+            ID
+          </div>
+          <div class="data">
+            Software
+          </div>
+        </div> 
+        <div id="software-data">
+          <!-- Table Data From Database Here -->
+        </div>
+      </div>
+      <div class="form">
+        <form id="software-form">
+          
+          <div class="field optional">
+            <div class="label">
+              <label for="id">ID:</label>
+            </div>
+            <div class="input">
+              <input class="hidden" type="text" id="id" name="id" required readonly>
+              <div id="id-text"></div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="label">
+              <label for="name">Name:</label>
+            </div>
+            <div class="input">
+              <input type="text" id="name" name="name" required>
+            </div>
+          </div>
+
+          <div class="field optional" style="height: 45px;">
+            <div class="label">
+              <label for="shortcut">Shortcut:</label>
+            </div>
+            <div class="input">
+              <input class="hidden" type="text" id="shortcut" name="shortcut" required readonly>
+              <div id="shortcut-text"></div>
+              <button type="button" class="form-button" id="browse-shortcut">Browse</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="label">
+              <label for="backup">Backup</label>
+            </div>
+            <div class="input" onclick="toggleBackup()" style="width:unset;margin-right:10px;">
+              <label class="switch">
+                <input type="checkbox" id="toggle-backup" name="toggle-backup">
+                <span class="slider round"></span>
+              </label>
+            </div>  
+            <div class="input optional">
+              <input class="hidden" type="text" id="backup" name="backup" required readonly disabled>
+              <div id="backup-text"></div>
+              <button type="button" class="form-button" id="browse-backup">Browse</button>
+            </div>
+          </div>
+          
+
+          <div class="field">
+            <div class="label">
+              <label for="poster">Poster:</label>
+            </div>
+            <div class="input">
+              <input class="hidden" type="text" id="poster" name="poster" required readonly>
+              <div id="poster-text"></div>
+              <button type="button" class="form-button" id="browse-poster">Browse</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="label">
+              <label for="background">Background:</label>
+              <div id="background"></div>
+            </div>
+            <div class="input">
+              <input class="hidden" type="text" id="background" name="background" required readonly>
+              <div id="background-text"></div>
+              <button type="button" class="form-button" id="browse-background">Browse</button>
+            </div>
+          </div>
+
+          <div class="field" style="justify-content: flex-start;">
+            <div class="label">
+              <label for="is-steam">Steam App?:</label>
+            </div>
+            <div class="input" onclick="isSteam()">
+              <label class="switch">
+                <input type="checkbox" id="is-steam" name="is-steam">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field optional">
+            <div class="label">
+              <label for="steam-app-id">Steam App ID:</label>
+            </div>
+            <div class="input">
+              <input type="number" id="steam-app-id" name="steam-app-id" required>
+            </div>
+          </div>
+
+          
+
+          <div class="form-controls">
+            <button type="button" class="form-button" id="add-item">Add Item</button>
+            <button type="button" class="form-button" id="update-item">Update Item</button>
+            <button type="button" class="form-button delete" id="delete-item">Delete Item</button>
+            <button type="button" class="form-button" id="clearForm">Clear Form</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  
+  <section>
+    <div id="caption"></div>
+    <div class="preview-container">
+      <div class="preview">
+        <img id="poster-preview">
+      </div>
+      <div class="preview">
+        <img id="background-preview">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div id="options-screen" style="display:none;opacity:0;" >
+      <div class="options-container">
+        <div class="exit-button"  onclick="closeSettingsMenu()">
+            &#x2715;
+        </div>
+        <div>
+            <label style="min-width: 140px;">Steam Location:</label>
+            <input type="text" id="steam-path" readonly>
+            <button class="form-button" onclick="selectSteamExe()">Browse</button>
+        </div>
+        <div>
+          <label>Enable app name on tile hover:</label>
+          <label class="switch"> 
+            <input type="checkbox" id="show-title" name="show-title">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div style="justify-content: space-evenly;">
+          <button class="form-button" style="margin:0;" onclick="saveConfig()">Save Settings</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="./crud.js" defer></script>
+</body>
+</html>

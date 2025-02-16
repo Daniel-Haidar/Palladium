@@ -1,0 +1,20 @@
+{
+  "name": "Palladium",
+  "version": "1.0.0",
+  "description": "An Electron Game Launcher",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager . Palladium --platform=win32 --arch=x64 --icon=icon.ico --out=dist --overwrite"
+  },
+  "keywords": [],
+  "author": "Dancchi",
+  "license": "MIT",
+  "dependencies": {
+    "sqlite3": "latest"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-packager": "latest"
+  }
+}

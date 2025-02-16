@@ -1,0 +1,237 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    background-image: url(assets/content.webp);
+    background-position: center;
+    background-size: cover;
+    user-select: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+img {
+	pointer-events: none;
+}
+
+.profile {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+    width:200px;
+    height: auto;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(105%);
+}
+
+.profile div {
+    padding: 10px;
+}
+
+.pfp {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+
+.blur {
+    opacity: 0.5 !important;
+    filter: blur(5px);
+}
+
+.screen{
+	display:flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+    transition: 1s ease;
+}
+
+#intro-screen {
+    background-image: url('assets/logo--fullscreen.svg'), url('assets/content.webp');
+    background-position: center;
+    background-size: cover;
+    z-index:6;
+}
+
+#screen1 {
+    align-items: center;
+    justify-content: space-evenly;
+    z-index:5;
+}
+
+#screen2 {
+	background-image: url('assets/content.webp');
+	background-position: center;
+	background-size: cover;
+}
+
+
+
+.back-button {
+    align-items: center;
+    border-radius: 0 0 0.5em 0;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:bold;
+    height:1.3em;
+    justify-content: center;
+    padding-right: 0.25em;
+    position: fixed;
+    width:2em;
+    transition: 0.2s ease;
+    z-index: 3;
+}
+
+.back-button:hover {
+    color: blue;
+    background-color: black;
+}
+
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    gap:1em;
+    justify-content: space-evenly;
+    padding:0 2em 0 2em;
+	-ms-overflow-style: none; 
+	overflow-y: scroll;
+	padding-top: 2em;
+    width:100%;
+    z-index: 2;
+}
+
+#content::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+
+.card {
+    align-items: center;
+    background-color: #000000;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    display: flex;
+    height:54vh;
+    justify-content: center;
+    min-height: 324px;
+    min-width: 216px;
+    position: relative;
+    width:36vh;
+    text-align: center;
+    transition: 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
+	user-select: none;
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.3), 0 8px 30px 0 rgba(0, 0, 0, 0.285);
+    transform: scale(1.04);
+    z-index: 2;
+}
+
+.image {
+    height:100%;
+    width:100%;
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.3s ease;
+}
+
+.card.hidden {
+    min-height: 0;
+	height:0px;
+}
+
+.title {    
+    color:white;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    border-radius: 5px;
+    display: flex;
+    opacity:0;
+    padding:5px;
+    position: absolute;
+    text-align: center;
+    transition: 0.3s ease;
+    z-index:3;
+}
+
+.card:hover .title {
+    opacity: 0;
+}
+
+#screen3 {
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+}
+
+#game-options {
+    align-items: flex-start;
+    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    height:100vh;
+    gap:1em;
+    justify-content: end;
+    width:100%;
+}
+
+.gameButton {
+    align-items: center;
+    background-color: rgb(21, 21, 51);
+    border: 2px solid black;
+    border-radius:25px;
+    color:white;
+    cursor: pointer;
+    display: flex;
+    height:70px;
+    justify-content: center;
+    margin-left: 2em;
+    transition: 0.1s ease;
+    width:250px;
+}
+
+.gameButton:last-child {
+    margin-bottom: 3em;
+}
+
+.gameButton:hover {
+    filter: invert();
+    position: relative;
+    transition: none;
+}
+
+.gameButton img {
+    height: 35px;
+    filter: invert();
+    margin-left: 1em;
+}
+
+.backupButton:hover {
+    position: relative;
+    top: -1px;
+    box-shadow: #000000;
+    transform: scale(103%);
+}

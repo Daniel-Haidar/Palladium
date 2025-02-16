@@ -1,0 +1,253 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    background-color: rgb(0, 0, 0);
+    background-image: url(./assets/content.webp);
+    background-position: center;
+    background-size: cover;
+    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    user-select: none;
+}
+
+img {
+	pointer-events: none;
+}
+
+.profile {
+    display: flex;
+    width:200px;
+    height: auto;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+
+    text-align: center;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(105%);
+}
+
+.profile div {
+    padding: 10px;
+}
+
+.pfp {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+
+.blur {
+    opacity: 0.5 !important;
+    filter: blur(5px);
+}
+
+.screen{
+    position: absolute;
+
+	display:flex;
+    width: 100vw;
+    height: 100vh;
+    
+    font-size: 2em;
+
+    transition: 0.5s ease;
+}
+
+#intro-screen {
+    z-index:7;
+
+    background-image: url(./assets/logo.svg), url(./assets/content.webp);
+    background-position: center;
+    background-size: 80vw, cover;
+    background-repeat: no-repeat;
+}
+
+#screen1 {
+	background-position: center;
+	background-size: cover;
+}
+
+#content {
+    z-index: 2;
+
+    display: grid;
+    width:100%;
+    flex-wrap: wrap;
+    gap:1em;
+    padding:2em;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fill, minmax(216px, 36vh));
+    
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #000 #00000000;
+    transition: 0s;
+}
+
+#content::-webkit-scrollbar {
+    display: none;
+}
+
+
+.card {
+    position: relative;
+
+    display: flex;
+    height:54vh;
+    width:36vh;
+    min-height: 324px;
+    min-width: 216px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+
+    background-color: #000000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    text-align: center;
+
+    cursor: pointer;
+    transition: 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
+	user-select: none;
+}
+
+.card:hover {
+    z-index: 2;
+
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.3), 0 8px 30px 0 rgba(0, 0, 0, 0.285);
+
+    transform: scale(1.04);
+}
+
+.image {
+    height:100%;
+    width:100%;
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
+
+    transition: 0.3s ease;
+}
+
+.card.hidden {
+    height:0px;
+    min-height: 0;
+}
+
+.title {
+    position: absolute;
+    z-index:3;
+    
+    display: flex;
+    padding:3px 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    
+    color:white;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+
+    text-align: center;
+    text-shadow: 0 0 3px black;
+
+    transition: 0.3s ease;
+    backdrop-filter: blur(1px);
+    transform: translateY(50%);
+}
+
+.card:hover .title {
+    opacity: 1;
+
+    transform: translateY(0%);
+}
+
+.title.hidden {
+    display:none;
+    opacity:0;
+}
+
+#screen2 {
+    background-size: cover;
+    background-position: center;
+}
+
+#software-options {
+    height:100vh;
+    width:100%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: end;
+    flex-direction: column;
+    gap:1em;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.softwareButton {
+    display: flex;
+    height:70px;
+    width:250px;
+    margin-left: 2em;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius:25px;
+
+    background-color: rgb(21, 21, 51);
+    color:white;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.softwareButton:last-child {
+    margin-bottom: 3em;
+}
+
+.softwareButton:hover {
+    position: relative;
+
+    filter: invert();
+    transition: none;
+}
+
+.softwareButton:active {
+    transform: scale(90%);
+    opacity: 0.7;
+  }
+
+.softwareButton img {
+    height: 35px;
+    margin-left: 1em;
+
+    filter: invert();
+}
+
+.backupButton:hover {
+    position: relative;
+    top: -1px;
+
+    box-shadow: #000000;
+    
+    transform: scale(103%);
+}
+
